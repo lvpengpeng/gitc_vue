@@ -1,25 +1,23 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <header-item />
+    <!-- <img src="./assets/logo.png"> -->
     <router-view/>
-    <h6>less</h6>
   </div>
 </template>
 
 <script>
+import HeaderItem from '@/components/HeaderItem'
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+    HeaderItem
+  }
 }
 </script>
 
 <style lang="less">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
   h6{
     color:red;
   }

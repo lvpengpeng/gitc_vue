@@ -9,4 +9,16 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script>
+    //reset.js
+// 100px=1rem
+;(function(win, doc){
+    function change(){
+        doc.documentElement.style.fontSize=50*doc.documentElement.clientWidth/375+'px';
+    }
+    change();
+
+    win.addEventListener('resize', change, false);
+})(window, document);
+  </script>
 </html>
