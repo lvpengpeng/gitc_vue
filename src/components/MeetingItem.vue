@@ -1,29 +1,27 @@
 <template>
   <div>
-      <div class="meeting-title" @click="toggleClick()">主会场</div>
-      <MeetingPople v-show="toggle"/>
+      <div class="meeting-title" @click="toggleClick()">{{this.pople.name}}</div>
+      <MeetingPople v-show="toggle" :poples="this.pople.data"/>
   </div>
 </template>
 <script>
 import MeetingPople from '@/components/MeetingPople'
 export default {
     props:{
-        // pople :{
-        //   type:Object,
-        //   default() {
-        //     return [
-        //       // {price:10,count:1} 模拟有一物品，如果父组件没有selectFoods，就现实这么默认的了。
-        //       ]
-        //   }
-        // },
+        pople :{
+          type:Object,
+          default() {
+            return {}
+          }
+        },
     },
     data (){
         return {
-            toggle:true
+            toggle:false
         }
     },
     mounted(){
-        // console.log(this.pople)
+        console.log(this.pople,1234)
     },
     methods:{
         toggleClick:function(){

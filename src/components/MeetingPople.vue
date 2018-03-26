@@ -1,21 +1,31 @@
 <template>
-  <div>
-      <div class="meeting-list">
-          <div class="meeting-list-box">
-              <div class="left">
-                  <img src="" alt="">
-                  <div class="time">123</div>
-              </div>
-              <div class="right" >
-                  <h2>123</h2>
-                  <p>name add / adds</p>
-              </div>
-          </div>
-      </div>
-  </div>
+    <div>
+        <div v-for="item in this.poples">
+        <div class="meeting-list">
+            <div class="meeting-list-box">
+                <div class="left">
+                    <img :src="item.pic" alt="">
+                    <div class="time">{{item.stime}}</div>
+                </div>
+                <div class="right" >
+                    <h2>{{item.stheme}}</h2>
+                    <p>{{item.name}} {{item.company}} {{item.position}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 </template>
 <script>
 export default {
+    props:{
+        poples :{
+          type:Array,
+          default() {
+            return []
+          }
+        },
+    },
 }
 </script>
 <style lang="less" scoped>
