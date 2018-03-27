@@ -1,18 +1,41 @@
 <template>
-  <div class="header-box">
-    <div class="box-left">
-      <img src="../assets/logo.png" alt="">
+  <div>
+    <div class="header-box">
+      <div class="box-left">
+        <img src="../assets/logo.png" alt="">
+      </div>
+      <div class="box-right">
+        <a href="https://www.baidu.com">现场购票</a>
+        <span>我的门票</span>
+        <em @click="togglePop"></em>
+      </div>
     </div>
-    <div class="box-right">
-      <a href="https://www.bagevent.com/event/768490">现场购票</a>
-      <span>我的门票</span>
-      <em></em>
-    </div>
+    <Menu class="meun"  v-on:message="handleMessage" v-show="togglePopShow"/>
   </div>
 </template>
 
 <script>
+import Menu from './Meun'
 export default {
+  data (){
+    return {
+      togglePopShow:false
+    }
+  },
+  components:{
+    Menu
+  },
+  methods:{
+    togglePop:function(){
+      this.togglePopShow=!this.togglePopShow
+    },
+    close: function () {
+      this.togglePopShow=false;
+    },
+    handleMessage: function () {
+      this.togglePopShow=false
+    }
+  }
 }
 </script>
 
@@ -43,5 +66,13 @@ export default {
     justify-content: space-between;
     align-items: center;
   }
+}
+.meun{
+  width: 100%;
+   height: calc(100vh);
+    background: rgba(0, 0, 0, .6);
+    position:fixed;
+    left: 0;
+    top: 0
 }
 </style>

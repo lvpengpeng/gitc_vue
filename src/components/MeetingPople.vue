@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="item in this.poples">
+        <div v-for="item in this.poples" :key="item.id">
         <div class="meeting-list">
             <div class="meeting-list-box">
                 <div class="left">
