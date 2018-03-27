@@ -1,5 +1,5 @@
 <template>
-    <div class="pople">
+    <div class="pople" @click="poplePop">
         <img :src="this.pro.pic" alt="">
         <div class="name">{{this.pro.name}}</div>
         <div class="adds">{{this.pro.company}}</div>
@@ -17,7 +17,11 @@
            }
         },
         mounted(){
-            console.log(this.pro,1234456)
+        },
+        methods:{
+            poplePop:function(){
+                this.$emit('message',{ message: this.pro })                
+            }
         }
     }
 </script>

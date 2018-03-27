@@ -5,9 +5,8 @@
         <a href="javascript:;" v-on:click="handleSendMessage">我的门票</a>
         <a href="javascript:;" v-on:click="handleSendMessage">个人中心</a>
         <router-link  to="/news" v-on:click.native="handleSendMessage">新闻</router-link>
-        <router-link  to="/ticket" v-on:click.native="handleSendMessage">门票</router-link>
         <router-link  to="/home" v-on:click.native="handleSendMessage">主页</router-link>
-        <router-link  to="/guest" v-on:click.native="handleSendMessage">嘉宾</router-link>
+        <router-link  to="/guest" v-on:click.native="handleSendMessage">大会演讲嘉宾</router-link>
         <router-link  to="/expert" v-on:click.native="handleSendMessage">专家</router-link>
         <router-link  to="/chairman" v-on:click.native="handleSendMessage">主席团</router-link>
     </div>
