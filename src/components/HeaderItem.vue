@@ -6,7 +6,7 @@
       </div>
       <div class="box-right">
         <a href="https://www.baidu.com">现场购票</a>
-        <span @click="myticket">我的门票</span>
+        <span @click="myticket" >我的门票</span>
         <em @click="togglePop"></em>
       </div>
     </div>
@@ -39,7 +39,8 @@ export default {
         if(localStorage.getItem("phone")){
             this.$router.push('/ticket');
         }else{
-        this.$emit('showtoggle')   
+        this.$emit('showlogin')   
+        // this.$emit('showlogin',{ oldurl:'/ticket' }) 可以这么传参
         }         
     }
   }

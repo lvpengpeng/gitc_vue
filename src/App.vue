@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header-item v-on:showtoggle="open"/>
+    <header-item v-on:showlogin="open" />
     <!-- <img src="./assets/logo.png"> -->
     <router-view   v-on:showtoggle="handleMessage"/>
     <div class="login-pop" v-if="toggle">
@@ -41,8 +41,10 @@ export default {
     close:function(){
       this.toggle=false;     
     },
-    open:function(){
+    open:function(en){
+          // console.log(en.oldurl,123)
       this.toggle=true;
+      this.$router.push('/ticket');
     },
     send:function(){
       var params = new URLSearchParams();
