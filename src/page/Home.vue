@@ -21,10 +21,10 @@ import HeightItem from '@/components/HeightItem'
     export default {
         props:{
             home:{
-                type:Boolean
-                // default (){
-                //     return false
-                // }
+                type:Boolean,
+                default (){
+                    return false
+                }
             }
         },
         data (){
@@ -49,6 +49,8 @@ import HeightItem from '@/components/HeightItem'
         .catch((error)=> {
               console.log(error);
         });
+      },
+      methods:{
       },
         components:{
             MeetingItem,

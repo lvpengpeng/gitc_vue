@@ -6,7 +6,7 @@
       </div>
       <div class="box-right">
         <a href="https://www.baidu.com">现场购票</a>
-        <span>我的门票</span>
+        <span @click="myticket">我的门票</span>
         <em @click="togglePop"></em>
       </div>
     </div>
@@ -34,6 +34,13 @@ export default {
     },
     handleMessage: function () {
       this.togglePopShow=false
+    },
+    myticket:function(){
+        if(localStorage.getItem("phone")){
+            this.$router.push('/ticket');
+        }else{
+        this.$emit('showtoggle')   
+        }         
     }
   }
 }

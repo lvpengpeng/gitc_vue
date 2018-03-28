@@ -8,7 +8,7 @@
             <div class="name">{{this.poples.name}}</div>
             <div class="commit">{{this.poples.company}}</div>
             <div class="commit">{{this.poples.summary}}</div>
-            <div class="add" @click="add">收藏</div>
+            <div class="add" @click="add">{{this.adds?"收藏":"已收藏"}}</div>
         </div>
   </div>
 </template>
@@ -22,7 +22,8 @@ import Pople from '@/components/Pople'
             return {
                 guester:[],
                 poples:{},
-                toggle:false
+                toggle:false,
+                adds:true
             }
         },
         components:{
@@ -39,14 +40,17 @@ import Pople from '@/components/Pople'
         methods:{
             handleMessage:function(payload){
                 this.poples=payload.message;
-                console.log(this.poples,12345678)
                 this.toggle=true;
             },
             close:function(){
                 this.toggle=false;                
             },
             add:function(){
-                this.$emit('showtoggle')            
+                if(localStorage.getItem("phone")){
+                    this.adds=!this.adds
+                }else{
+                this.$emit('showtoggle')   
+                }         
             }
         }
     }

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header-item />
+    <header-item v-on:showtoggle="open"/>
     <!-- <img src="./assets/logo.png"> -->
     <router-view   v-on:showtoggle="handleMessage"/>
     <div class="login-pop" v-if="toggle">
@@ -18,7 +18,6 @@
 <script>
 import HeaderItem from '@/components/HeaderItem'
 import axios from 'axios'
-import qs from 'qs';
 export default {
   data(){
     return {
@@ -42,6 +41,9 @@ export default {
     close:function(){
       this.toggle=false;     
     },
+    open:function(){
+      this.toggle=true
+    },
     send:function(){
       var params = new URLSearchParams();
       params.append('phone', this.tel);
@@ -60,12 +62,14 @@ export default {
       params.append('phone', this.tel);
       params.append('token', this.token);
       params.append('code', this.code);
+      var that=this
       axios.post(`http://120.92.10.182:8000/api/gitc/user/${this.tel}.json?token=${this.token}`, params)
         .then(function (response) {
         console.log(response.data,1);
         if(response.data.msg=="验证码不正确！"){
             // 模拟登录成功
             localStorage.setItem("phone",13000112233)
+            that.toggle=false;
         }
       })
       .catch(function (error) {
