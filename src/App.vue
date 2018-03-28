@@ -65,7 +65,7 @@ export default {
         console.log(response.data,1);
         if(response.data.msg=="验证码不正确！"){
             // 模拟登录成功
-            alert(num)
+            localStorage.setItem("phone",13000112233)
         }
       })
       .catch(function (error) {
