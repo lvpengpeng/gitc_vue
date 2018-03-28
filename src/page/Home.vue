@@ -19,6 +19,14 @@ import axios from 'axios';
 import MeetingItem from '@/components/MeetingItem'
 import HeightItem from '@/components/HeightItem'
     export default {
+        props:{
+            home:{
+                type:Boolean
+                // default (){
+                //     return false
+                // }
+            }
+        },
         data (){
             return {
                 meeting:{},
@@ -29,6 +37,7 @@ import HeightItem from '@/components/HeightItem'
             axios.get('http://120.92.10.182:8000/api/gitc/person/beijing.json?token=1afb756d16740266efde290917ca1a8e&phone=13800138000&order_by=-weight').then((response)=>{
             this.meeting=response.data;
             console.log(this.meeting,11123)
+            console.log(this.home,'路由传参')
         })
         .catch((error)=> {
               console.log(error);

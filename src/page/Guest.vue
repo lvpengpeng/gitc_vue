@@ -8,7 +8,7 @@
             <div class="name">{{this.poples.name}}</div>
             <div class="commit">{{this.poples.company}}</div>
             <div class="commit">{{this.poples.summary}}</div>
-            <div class="add">收藏</div>
+            <div class="add" @click="add">收藏</div>
         </div>
   </div>
 </template>
@@ -44,6 +44,9 @@ import Pople from '@/components/Pople'
             },
             close:function(){
                 this.toggle=false;                
+            },
+            add:function(){
+                this.$emit('showtoggle')            
             }
         }
     }
