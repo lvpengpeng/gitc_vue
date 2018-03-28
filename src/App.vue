@@ -42,7 +42,7 @@ export default {
       this.toggle=false;     
     },
     open:function(){
-      this.toggle=true
+      this.toggle=true;
     },
     send:function(){
       var params = new URLSearchParams();
@@ -70,6 +70,7 @@ export default {
             // 模拟登录成功
             localStorage.setItem("phone",13000112233)
             that.toggle=false;
+            alert('已经成功登录')
         }
       })
       .catch(function (error) {
